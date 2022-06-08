@@ -9,11 +9,9 @@ import { WeatherService } from './weather.service';
 })
 export class AppComponent {
   title: string = 'weatherAPI';
-  city: string = '';
   weatherArray: Array<any> = [];
   textValue: string = '';
-  locationName: string = '30 days Climate forecast for Israel';
-  errMsg: string = '';
+  locationName: string = 'Israel';
   placeHolder: string = 'city...';
 
   constructor(
@@ -34,7 +32,7 @@ export class AppComponent {
     console.log('ddddddddddddddd', this.weatherArray);
 
     this.weatherArray.length > 0
-      ? (this.locationName = `30 days Climate forecast for ${this.textValue}`)
+      ? (this.locationName = ` ${this.textValue}`)
       : (this.locationName = 'invalid location name');
   }
 
