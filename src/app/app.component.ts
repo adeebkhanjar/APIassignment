@@ -21,18 +21,13 @@ export class AppComponent {
 
   async ngOnInit() {
     this.weatherArray = await this.weaetherService.fetchData(this.locationName);
-    console.log(this.weatherArray);
   }
 
   onTextChange(event: Event) {
     this.textValue = (<HTMLInputElement>event.target).value;
   }
   async onClick() {
-    console.log('name', this.locationName);
-
     this.weatherArray = await this.weaetherService.fetchData(this.textValue);
-    console.log('ddddddddddddddd', this.weatherArray);
-    console.log('name', this.locationName);
     this.weatherArray.length > 0
       ? ((this.locationName = ` ${this.textValue}`),
         (this.titleMSG = '30 days Climate forecast for '))
