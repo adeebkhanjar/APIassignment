@@ -1,0 +1,12 @@
+<div class="card-wrap" (click)="onCardClick()">
+    <p>
+        <span>humidity : </span><span>{{ day.humidity }}</span>
+    </p>
+    <p>
+        <span>tempreture : </span><span>{{ day.temp.average }}</span>
+    </p>
+
+    <p>
+        <span>date : </span><span> {{ toDate(day.dt * 1000) }}</span>
+    </p>
+</div>

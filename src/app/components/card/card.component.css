@@ -1,0 +1,24 @@
+.card-wrap {
+    background-color: var(--secondary-light);
+    width: 40vmin;
+    height: 5vmin;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    box-shadow: 0 3px 9px 0 #505357;
+    color: var(--primary-dark);
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: small;
+    cursor: pointer;
+}
+
+.card-wrap:hover {
+    transform: scale(1.02);
+}
+
+.card-wrap:active {
+    transform: scale(0.98);
+}
