@@ -13,7 +13,7 @@ export class AppComponent {
   textValue: string = '';
   locationName: string = 'Israel';
   placeHolder: string = 'city...';
-
+  titleMSG: string = '30 days Climate forecast for ';
   constructor(
     private http: HttpClient,
     private weaetherService: WeatherService
@@ -28,12 +28,15 @@ export class AppComponent {
     this.textValue = (<HTMLInputElement>event.target).value;
   }
   async onClick() {
-    this.weatherArray = await this.weaetherService.fetchData(this.locationName);
-    console.log('ddddddddddddddd', this.weatherArray);
+    console.log('name', this.locationName);
 
+    this.weatherArray = await this.weaetherService.fetchData(this.textValue);
+    console.log('ddddddddddddddd', this.weatherArray);
+    console.log('name', this.locationName);
     this.weatherArray.length > 0
-      ? (this.locationName = ` ${this.textValue}`)
-      : (this.locationName = 'invalid location name');
+      ? ((this.locationName = ` ${this.textValue}`),
+        (this.titleMSG = '30 days Climate forecast for '))
+      : ((this.locationName = 'invalid location name'), (this.titleMSG = ''));
   }
 
   sortByTemperature() {
