@@ -1,12 +1,38 @@
-<div class="card-wrap" (click)="onCardClick()">
-    <p>
-        <span>humidity : </span><span>{{ day.humidity }}</span>
-    </p>
-    <p>
-        <span>tempreture : </span><span>{{ day.temp.average }}</span>
-    </p>
+<div class="card-wrap" [ngStyle]="{ 'justify-content': 'center' }" (click)="onHomeClick()">
+    <h2>HOME</h2>
+</div>
+<div class="card-wrap">
+    <div>
+        <p>
+            <span>date : </span><span> {{ toDate(day.dt * 1000) }}</span>
+        </p>
+        <p>
+            <span>humidity : </span><span>{{ day.humidity }}</span>
+        </p>
+        <p>
+            <span>pressure : </span><span>{{ day.pressure }}</span>
+        </p>
+        <p>
+            <span>wind speed : </span><span>{{ day.wind_speed }}</span>
+        </p>
 
-    <p>
-        <span>date : </span><span> {{ toDate(day.dt * 1000) }}</span>
-    </p>
+        <p>tempreture :</p>
+        <ul>
+            <li>
+                <span>average: </span><span>{{ day.temp.average }}</span>
+            </li>
+            <li>
+                <span>average max : </span><span>{{ day.temp.average_max }}</span>
+            </li>
+            <li>
+                <span>average min : </span><span>{{ day.temp.average_min }}</span>
+            </li>
+            <li>
+                <span>record max : </span><span>{{ day.temp.record_max }}</span>
+            </li>
+            <li>
+                <span>record min : </span><span>{{ day.temp.record_min }}</span>
+            </li>
+        </ul>
+    </div>
 </div>

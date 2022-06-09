@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+        <input type="text" (input)="onTextChange($event)" placeholder="{{ placeHolder }}" />
+        <button (click)="onClick()">search</button>
+    </div>
+    <div class="card-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>{{ titleMSG }} {{ locationName }}</th>
+                </tr>
+                <tr>
+                    <th (click)="sortByDate()">Date</th>
+                    <th (click)="sortByTemperature()">Temperature</th>
+                    <th (click)="sortByHumidity()">Humidity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let day of weatherArray" (click)="onRowClick(day)">
+                    <td>
+                        <span>{{ toDate(day.dt * 1000) }}</span>
+                    </td>
+                    <td>
+                        <span>{{ day.temp.average }}</span>
+                    </td>
+                    <td>
+                        <span>{{ day.humidity }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

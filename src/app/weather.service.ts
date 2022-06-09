@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,19 @@ export class WeatherService {
       'X-RapidAPI-Key': 'a91609691dmsh3e79dfad8861ddfp1fb497jsn74d07990dda6',
     },
   };
-
+  public day = {
+    dt: 0,
+    humidity: 0,
+    pressure: 0,
+    wind_speed: 0,
+    temp: {
+      average: 0,
+      average_max: 0,
+      average_min: 0,
+      record_max: 0,
+      record_min: 0,
+    },
+  };
   constructor(private http: HttpClient) {}
 
   async fetchData(location: string) {
