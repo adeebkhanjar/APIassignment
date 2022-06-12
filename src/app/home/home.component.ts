@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from '../weather.service';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { weatherDay } from '../interfaces/weather.interface';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private weaetherService: WeatherService,
-    private route: ActivatedRoute,
     private router: Router
   ) {}
 
@@ -54,9 +53,8 @@ export class HomeComponent implements OnInit {
   toDate(date: any) {
     return new Date(date).toLocaleDateString();
   }
-  onRowClick(data: any) {
-    this.router.navigateByUrl('/card');
-    console.log(data);
+  onRowClick(data: weatherDay) {
     this.weaetherService.day = data;
+    this.router.navigateByUrl(`/card/:${data.dt}`);
   }
 }

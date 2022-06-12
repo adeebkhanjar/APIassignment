@@ -8,23 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'card', component: CardComponent },
-];
 @NgModule({
   declarations: [AppComponent, CardComponent, HomeComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes),
-  ],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
   exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-  getWeatherArray() {}
-}
+export class AppModule {}
